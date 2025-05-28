@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">EnglishBee</string>
+    <string name="welcome">Welcone to English Bee</string>
+    <string name="welcome1">Let\'s start your English learning journey!</string>
+    <string name="start">Let\'s start!</string>
+    <string name="grammar">Grammar</string>
+    <string name="vocabulary">Vocabulary</string>
+    <string name="verbs">Verbs</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="choose">Choose your opponent</string>
 </resources>
