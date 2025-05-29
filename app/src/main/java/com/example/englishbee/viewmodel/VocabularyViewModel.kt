@@ -52,3 +52,4 @@ class VocabularyViewModel(private val dao: VocabularyDao) : ViewModel() {
 
     fun next() = drawNext()
 }
+//change 1
