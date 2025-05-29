@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-kapt")
 }
 
 android {
@@ -57,4 +58,26 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    // Retrofit + Moshi
+    implementation(libs.androidx.core.ktx)
+    // …
+
+    // Retrofit + Moshi
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.0")     // (opcjonalnie, ale przydatna)
+
+    // OkHttp – logowanie zapytań
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    // Kotlin Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+
+    // Room
+    implementation("androidx.room:room-ktx:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")  // jeśli używasz kapt
+    // (lub ksp: "androidx.room:room-compiler:2.6.1", plugin("com.google.devtools.ksp") …)
+    implementation("androidx.compose.material3:material3:1.2.1")
+    implementation("androidx.compose.ui:ui-tooling:...")
+    // Lifecycle (viewModelScope już masz z wcześniejszego kodu)
 }

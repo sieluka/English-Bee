@@ -20,7 +20,10 @@ import com.example.englishbee.R
 @Composable
 fun ScreenTwo(
     onNavigateToScreen1: () -> Unit,
-    onNavigateToScreen3: () -> Unit
+    onNavigateToScreen3: () -> Unit,
+    onNavigateToGrammar: () -> Unit,
+    onNavigateToVerbs: () -> Unit,
+    onNavigateToVocabulary: () -> Unit
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -32,7 +35,7 @@ fun ScreenTwo(
             fontSize = 24.sp
         )
         Button(
-            onClick = onNavigateToScreen1,
+            onClick =  onNavigateToGrammar,
             modifier = Modifier
                 .padding(16.dp)
                 .width(220.dp)
@@ -44,7 +47,7 @@ fun ScreenTwo(
 
         }
         Button(
-            onClick = onNavigateToScreen3,
+            onClick = onNavigateToVerbs,
             modifier = Modifier
                 .padding(16.dp)
                 .width(220.dp)
@@ -55,7 +58,7 @@ fun ScreenTwo(
             )
         }
         Button(
-            onClick = onNavigateToScreen1,
+            onClick = onNavigateToVocabulary,
             modifier = Modifier
                 .padding(16.dp)
                 .width(220.dp)
