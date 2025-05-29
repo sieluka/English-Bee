@@ -7,14 +7,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.englishbee.viewmodel.VerbQuizViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
+
 import androidx.compose.ui.Alignment
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.ui.platform.LocalContext
 import com.example.englishbee.viewmodel.VerbQuizViewModelFactory
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.runtime.getValue
+
 import com.example.englishbee.viewmodel.VerbQuizUiState
 @OptIn(ExperimentalMaterial3Api::class)
 

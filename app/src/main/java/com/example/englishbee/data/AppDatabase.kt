@@ -43,7 +43,7 @@ abstract class AppDatabase : RoomDatabase() {
             GrammarQuestion(sentence = "I ____ to school yesterday.",      answer = "went"),
             GrammarQuestion(sentence = "She has ____ her homework.",       answer = "done"),
             GrammarQuestion(sentence = "They ____ playing football now.",  answer = "are"),
-            GrammarQuestion(sentence = "We ____ live in London.",          answer = "don’t"),
+            GrammarQuestion(sentence = "We ____ live in London.",          answer = "don't"),
             GrammarQuestion(sentence = "He ____ coffee every morning.",    answer = "drinks"),
 
             // poziom B1

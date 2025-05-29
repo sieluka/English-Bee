@@ -36,7 +36,7 @@ class VocabularyViewModel(private val dao: VocabularyDao) : ViewModel() {
             return
         }
 
-        val next = deck.removeLast()
+        val next = deck.removeAt(deck.lastIndex)
         _uiState.value = VocabularyUiState(current = next)
     }
 
