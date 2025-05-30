@@ -63,7 +63,7 @@ Aplikacja wykorzystuje Words.Api do pobierania tłumaczeń i znaczeń słówek. 
 ## Zrzuty ekranu
 
 ![ekran_ladowania](https://github.com/user-attachments/assets/25d20f21-c39f-4752-b2e3-3de2303f0700)
-![ekran_startowy](https://github.com/user-attachments/assets/780505a1-7183-4a8d-9ed6-b968f016a709)
+![ekran_startowy](https://github.com/user-attachments/assets/cc487d8f-266a-482b-b3a6-e91f51176d6c)
 ![ekran_menu](https://github.com/user-attachments/assets/8a8a54c4-972f-4783-86fd-ed76be51bdf3)
 ![ekran_gramatyki](https://github.com/user-attachments/assets/be727f34-306c-4d4a-8686-26c984a20f8b)
 ![ekran_czasownikow](https://github.com/user-attachments/assets/59e00ecd-aed5-4b81-93da-7d29149088a3)
