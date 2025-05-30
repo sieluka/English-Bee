@@ -24,8 +24,8 @@ fun NavigationContent() {
             ScreenTwo(
                 onNavigateToGrammar = { navController.navigate("grammar") },
                 onNavigateToVerbs = { navController.navigate("verbs") },
-                onNavigateToScreen1 = { navController.navigate("screen1") },
-                onNavigateToScreen3 = { navController.navigate("screen3") },
+                //onNavigateToScreen1 = { navController.navigate("screen1") },
+                onNavigateToDictionary = { navController.navigate("screen3") },
                 onNavigateToVocabulary = { navController.navigate("vocabulary") }
 
             )

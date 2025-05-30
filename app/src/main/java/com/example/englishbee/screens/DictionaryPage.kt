@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -19,50 +21,64 @@ import com.example.englishbee.viewmodel.DictionaryViewModel
 fun ScreenThree(
     onNavigateToScreen2: () -> Unit,
     onNavigateToScreen1: () -> Unit,
-    viewModel: DictionaryViewModel = viewModel()   // <-- Hilt? zamień na hiltViewModel()
+    viewModel: DictionaryViewModel = viewModel()
 ) {
     val state by remember { viewModel::uiState }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(24.dp)
-    ) {
-        /* Pasek wyszukiwania */
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            TextField(
-                value = state.query,
-                onValueChange = viewModel::onQueryChange,
-                placeholder = { Text("Enter word") },
-                singleLine = true,
-                modifier = Modifier.weight(1f)
-            )
-            IconButton(
-                onClick = viewModel::search,
-                enabled = state.query.isNotBlank()
+    Scaffold(
+        topBar = {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 55.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Icon(Icons.Default.Search, contentDescription = "Search")
+                IconButton(
+                    onClick = onNavigateToScreen2
+                )
+                {
+                    Icon(
+                        Icons.Default.ArrowBack,
+                        contentDescription = null
+                    )
+                }
+                TextField(
+                    value = state.query,
+                    onValueChange = viewModel::onQueryChange,
+                    placeholder = { Text("Enter word") },
+                    singleLine = true,
+                    modifier = Modifier.weight(1f)
+                )
+                IconButton(
+                    onClick = viewModel::search,
+                    enabled = state.query.isNotBlank()
+                ) {
+                    Icon(Icons.Default.Search, contentDescription = "Search")
+                }
             }
         }
-
-        /* Zawartość */
-        when {
-            state.isLoading -> CircularProgressIndicator()
-            state.error != null -> Text(
-                text = state.error ?: "Error",
-                color = MaterialTheme.colorScheme.error
-            )
-            state.entries.isNotEmpty() -> LazyColumn(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth(),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                items(state.entries) { EntryCard(it) }
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(24.dp)
+        ) {
+            when {
+                state.isLoading -> CircularProgressIndicator()
+                state.error != null -> Text(
+                    text = state.error ?: "Error",
+                    color = MaterialTheme.colorScheme.error
+                )
+                state.entries.isNotEmpty() -> LazyColumn(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth(),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    items(state.entries) { EntryCard(it) }
+                }
             }
         }
     }

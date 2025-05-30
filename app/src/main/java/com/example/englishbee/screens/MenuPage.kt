@@ -7,7 +7,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,67 +21,83 @@ import androidx.compose.ui.unit.sp
 import com.example.englishbee.R
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenTwo(
-    onNavigateToScreen1: () -> Unit,
-    onNavigateToScreen3: () -> Unit,
+    onNavigateToDictionary: () -> Unit,
     onNavigateToGrammar: () -> Unit,
     onNavigateToVerbs: () -> Unit,
     onNavigateToVocabulary: () -> Unit
 ) {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = stringResource(R.string.choose),
-            fontSize = 24.sp
-        )
-        Button(
-            onClick =  onNavigateToGrammar,
-            modifier = Modifier
-                .padding(16.dp)
-                .width(220.dp)
-                .height(100.dp)
-        ) {
-            Text(
-                text = stringResource(R.string.grammar)
-            )
-
-        }
-        Button(
-            onClick = onNavigateToVerbs,
-            modifier = Modifier
-                .padding(16.dp)
-                .width(220.dp)
-                .height(100.dp)
-        ) {
-            Text(
-                text = stringResource(R.string.verbs),
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                title = {
+                    Text(
+                        stringResource(R.string.choose),
+                        fontSize = 30.sp,
+                        modifier = Modifier
+                            .padding(top = 20.dp)
+                    )
+                }
             )
         }
-        Button(
-            onClick = onNavigateToVocabulary,
+    ) { innerPadding ->
+        Column(
             modifier = Modifier
-                .padding(16.dp)
-                .width(220.dp)
-                .height(100.dp)
+                .fillMaxSize()
+                .padding(innerPadding),
+            verticalArrangement = Arrangement.SpaceEvenly,
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(
-                text = stringResource(R.string.vocabulary),
-            )
-        }
-        Button(
-            onClick = onNavigateToScreen3,
-            modifier = Modifier
-                .padding(16.dp)
-                .width(220.dp)
-                .height(100.dp)
-        ) {
-            Text(
-                text = stringResource(R.string.dictionary),
-            )
+            Button(
+                onClick = onNavigateToGrammar,
+                modifier = Modifier
+                    .padding(16.dp)
+                    .width(220.dp)
+                    .height(100.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.grammar),
+                    fontSize = 24.sp
+                )
+            }
+            Button(
+                onClick = onNavigateToVerbs,
+                modifier = Modifier
+                    .padding(16.dp)
+                    .width(220.dp)
+                    .height(100.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.verbs),
+                    fontSize = 24.sp
+                )
+            }
+            Button(
+                onClick = onNavigateToVocabulary,
+                modifier = Modifier
+                    .padding(16.dp)
+                    .width(220.dp)
+                    .height(100.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.vocabulary),
+                    fontSize = 24.sp
+                )
+            }
+            Button(
+                onClick = onNavigateToDictionary,
+                modifier = Modifier
+                    .padding(16.dp)
+                    .width(220.dp)
+                    .height(100.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.dictionary),
+                    fontSize = 24.sp
+                )
+            }
         }
     }
 }
