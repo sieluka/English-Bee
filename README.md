@@ -1,50 +1,67 @@
-
 # EnglishBee
 
-Aplikacja do nauki języka angielskiego w języku Kotlin, korzystająca z Words.Api oraz lokalnej bazy danych Room
+**EnglishBee** to aplikacja mobilna na Androida wspierająca naukę języka angielskiego. Wykorzystuje lokalną bazę danych Room oraz zewnętrzne API słownikowe (Words.Api), oferując różnorodne formy nauki i szybki dostęp do tłumaczeń oraz quizów.
 
+---
 
 ## Funkcjonalności
 
-- Menu wybory formy nauki
-- Quiz gramatyczny
-- Odmiana czasowników nieregularnych
-- Tłumaczenie słówek
-- Wyszukiwanie znacznenia słów w słówniku
+- **Menu wyboru trybu nauki** – przejrzysty panel startowy z dostępem do różnych modułów.
+- **Quiz gramatyczny** – testy sprawdzające znajomość gramatyki.
+- **Odmiana czasowników nieregularnych** – nauka i ćwiczenia z popularnymi czasownikami angielskimi.
+- **Tłumaczenie słówek** – szybkie tłumaczenie i nauka nowych słów.
+- **Wyszukiwanie znaczenia słów** – integracja ze słownikiem online (Words.Api).
 
-## Tech Stack
+---
 
-- **Język programowania:** Kotlin
-- **Framework:** Jetpack Compose
-- **Baza danych:** Room
-- **Front-end:**
-- **Back-end:** Words.Api
+## Stos technologiczny
 
-## API
+- **Język:** Kotlin
+- **Framework:** Jetpack Compose (UI)
+- **Baza danych:** Room (SQLite)
+- **API:** Words.Api (dla tłumaczeń i definicji słówek)
+- **Architektura:** MVVM (Model-View-ViewModel)
 
-#### Get all items
+---
 
-```http
-  GET /api/items
-```
+## Instalacja
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
+1. Sklonuj repozytorium:
+   ```bash
+   git clone https://github.com/sieluka/English-Bee.git
+   ```
+2. Otwórz projekt w Android Studio.
+3. Zbuduj i uruchom aplikację na emulatorze lub urządzeniu fizycznym.
 
-#### Get item
+Wymagania:
+- Android Studio Flamingo lub nowszy
+- JDK 17+
+- Emulator lub urządzenie z Androidem 8.0+
 
-```http
-  GET /api/items/${id}
-```
+---
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
+## Konfiguracja API
 
+Aplikacja wykorzystuje Words.Api do pobierania tłumaczeń i znaczeń słówek. W razie potrzeby skonfiguruj własny klucz API w odpowiednich plikach konfiguracyjnych projektu.
 
+---
 
-## Zrzuty Ekranu
+## Przykładowe zapytania do API
+
+- **Pobierz wszystkie elementy**
+  ```http
+  GET /api/items?api_key=YOUR_API_KEY
+  ```
+
+- **Pobierz wybrany element**
+  ```http
+  GET /api/items/{id}
+  ```
+
+---
+
+## Zrzuty ekranu
+
 ![ekran_ladowania](https://github.com/user-attachments/assets/25d20f21-c39f-4752-b2e3-3de2303f0700)
 ![ekran_startowy](https://github.com/user-attachments/assets/780505a1-7183-4a8d-9ed6-b968f016a709)
 ![ekran_menu](https://github.com/user-attachments/assets/8a8a54c4-972f-4783-86fd-ed76be51bdf3)
@@ -53,10 +70,11 @@ Aplikacja do nauki języka angielskiego w języku Kotlin, korzystająca z Words.
 ![ekran_slowek](https://github.com/user-attachments/assets/7e1e3e3f-5838-45a8-a7ef-7762f080e9ce)
 ![ekran_slownika](https://github.com/user-attachments/assets/d43e30ba-4b6b-45d4-8e1b-3889c840838f)
 
-
+---
 
 ## Autorzy
 
 - Piotr Woźniak
 - Łukasz Sieradzki
 
+---
