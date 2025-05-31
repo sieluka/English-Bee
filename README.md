@@ -1,11 +1,12 @@
 # EnglishBee
 
-**EnglishBee** to aplikacja mobilna na Androida wspierająca naukę języka angielskiego. Wykorzystuje lokalną bazę danych Room oraz zewnętrzne API słownikowe (Words.Api), oferując różnorodne formy nauki i szybki dostęp do tłumaczeń oraz quizów.
+**EnglishBee** to aplikacja mobilna na Androida wspierająca naukę języka angielskiego. Wykorzystuje lokalną bazę danych Room oraz zewnętrzne API słownikowe (Words.Api), oferując różnorodne formy nauki i szybki dostęp do tłumaczeń oraz quizów. Aplikacja obsługuje rejestrację i logowanie użytkownika oraz przyznaje punkty za poprawne odpowiedzi.
 
 ---
 
 ## Funkcjonalności
 
+- **Logowanie i rejestracja** – każdy użytkownik ma własne konto i historię punktów w bieżącej sesji nauki.
 - **Menu wyboru trybu nauki** – przejrzysty panel startowy z dostępem do różnych modułów.
 - **Quiz gramatyczny** – testy sprawdzające znajomość gramatyki.
 - **Odmiana czasowników nieregularnych** – nauka i ćwiczenia z popularnymi czasownikami angielskimi.
