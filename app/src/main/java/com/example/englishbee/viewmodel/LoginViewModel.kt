@@ -6,7 +6,7 @@ import com.example.englishbee.repository.AuthRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-
+import com.example.englishbee.util.UserSession
 
 class LoginViewModel(private val repo: AuthRepository) : ViewModel() {
 
@@ -17,7 +17,11 @@ class LoginViewModel(private val repo: AuthRepository) : ViewModel() {
 
     fun login(login: String, pw: String, onSuccess: () -> Unit) =
         viewModelScope.launch {
-            if (repo.login(login, pw)) onSuccess()
-            else _error.value = "Niepoprawny login lub hasło"
+            if (repo.login(login, pw)) {
+                UserSession.set(login)        // ⬅️ zapisz nazwę
+                onSuccess()
+            } else {
+                _error.value = "Wrong login or password"
+            }
         }
 }

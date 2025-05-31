@@ -18,10 +18,13 @@ import com.example.englishbee.data.AppDatabase
 import com.example.englishbee.repository.GrammarRepository
 import com.example.englishbee.viewmodel.GrammarQuizViewModel
 import com.example.englishbee.viewmodel.GrammarUiState
-import kotlinx.coroutines.CoroutineScope
+
 import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.MainScope
-import androidx.compose.material3.TopAppBar
+
+import com.example.englishbee.util.ScoreManager
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.collectAsState
+
 @OptIn(ExperimentalMaterial3Api::class)             // ← DODAJ TO
 @Composable
 fun GrammarQuizScreen(
@@ -41,6 +44,7 @@ fun GrammarQuizScreen(
     )
 
     val state by vm.uiState.collectAsState()
+    val points by ScoreManager.points.collectAsState()
 
     /* ---------- UI ---------- */
     Scaffold(
@@ -51,6 +55,13 @@ fun GrammarQuizScreen(
                     IconButton(onClick = onBack) {
                         Icon(Icons.Default.ArrowBack, contentDescription = null)
                     }
+                },
+                actions = {
+                    Text(
+                        text = "Score: $points",
+                        style = MaterialTheme.typography.bodyLarge,
+                        modifier = Modifier.padding(end = 16.dp)
+                    )
                 }
             )
         }
@@ -95,7 +106,7 @@ fun GrammarQuizScreen(
             }
 
             Spacer(Modifier.weight(1f))
-            Text("Score: ${state.score}")
+
         }
     }
 }

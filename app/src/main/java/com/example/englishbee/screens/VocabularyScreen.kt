@@ -10,8 +10,12 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.englishbee.viewmodel.VocabularyViewModel
 import com.example.englishbee.viewmodel.VocabularyViewModelFactory
+import com.example.englishbee.util.ScoreManager
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.collectAsState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -19,7 +23,7 @@ fun VocabularyScreen(onBack: () -> Unit) {
     val context = LocalContext.current
     val vm: VocabularyViewModel = viewModel(factory = VocabularyViewModelFactory(context))
     val state by vm.uiState.collectAsState()
-
+    val points by ScoreManager.points.collectAsState()
     Scaffold(
         topBar = {
             TopAppBar(
@@ -28,6 +32,13 @@ fun VocabularyScreen(onBack: () -> Unit) {
                     IconButton(onClick = onBack) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Back")
                     }
+                },
+                actions = {
+                    Text(
+                        text = "Score: $points",
+                        style = MaterialTheme.typography.bodyLarge,
+                        modifier = Modifier.padding(end = 16.dp)
+                    )
                 }
             )
         }

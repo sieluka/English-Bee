@@ -7,6 +7,7 @@ import com.example.englishbee.data.VocabularyWord
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import com.example.englishbee.util.ScoreManager
 
 data class VocabularyUiState(
     val current: VocabularyWord? = null,
@@ -48,6 +49,7 @@ class VocabularyViewModel(private val dao: VocabularyDao) : ViewModel() {
         val current = _uiState.value.current ?: return
         val correct = current.polish.equals(_uiState.value.userInput.trim(), ignoreCase = true)
         _uiState.value = _uiState.value.copy(feedback = correct)
+        if (correct) ScoreManager.addPoint()
     }
 
     fun next() = drawNext()

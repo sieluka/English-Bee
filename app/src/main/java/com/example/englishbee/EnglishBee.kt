@@ -11,8 +11,8 @@ import com.example.englishbee.screens.GrammarQuizScreen
 import com.example.englishbee.screens.LoginPage
 import com.example.englishbee.screens.RegisterPage
 import com.example.englishbee.screens.VocabularyScreen
-
-
+import com.example.englishbee.util.ScoreManager
+import com.example.englishbee.util.UserSession
 @Composable
 fun NavigationContent() {
     val navController = rememberNavController()
@@ -37,7 +37,14 @@ fun NavigationContent() {
                 onNavigateToVerbs = { navController.navigate("verbs") },
                 //onNavigateToScreen1 = { navController.navigate("screen1") },
                 onNavigateToDictionary = { navController.navigate("screen3") },
-                onNavigateToVocabulary = { navController.navigate("vocabulary") }
+                onNavigateToVocabulary = { navController.navigate("vocabulary") },
+                onLogout = {
+                    ScoreManager.reset()      // zeruj punkty
+                    UserSession.clear()       // wyczyść login
+                    navController.navigate("login") {
+                        popUpTo("login") { inclusive = true }
+                    }
+                }
 
             )
         }

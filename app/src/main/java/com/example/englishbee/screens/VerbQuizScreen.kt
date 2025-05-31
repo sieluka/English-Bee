@@ -13,6 +13,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.ui.platform.LocalContext
 import com.example.englishbee.viewmodel.VerbQuizViewModelFactory
+import com.example.englishbee.util.ScoreManager
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.collectAsState
 
 import com.example.englishbee.viewmodel.VerbQuizUiState
 @OptIn(ExperimentalMaterial3Api::class)
@@ -24,7 +27,7 @@ fun VerbQuizScreen(
     val context = LocalContext.current
     val vm: VerbQuizViewModel = viewModel(factory = VerbQuizViewModelFactory(context))
     val state: VerbQuizUiState = vm.uiState.collectAsState().value
-
+    val points by ScoreManager.points.collectAsState()
     Scaffold(
         topBar = {
             TopAppBar(
@@ -33,6 +36,13 @@ fun VerbQuizScreen(
                     IconButton(onClick = onBack) {
                         Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null)
                     }
+                },
+                        actions = {
+                    Text(
+                        text = "Score: $points",
+                        style = MaterialTheme.typography.bodyLarge,
+                        modifier = Modifier.padding(end = 16.dp)
+                    )
                 }
             )
         }

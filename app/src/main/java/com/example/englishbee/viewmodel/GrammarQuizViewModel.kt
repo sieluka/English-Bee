@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import com.example.englishbee.util.ScoreManager
 
 data class GrammarUiState(
     val current: GrammarQuestion? = null,
@@ -55,11 +56,15 @@ class GrammarQuizViewModel(
     fun check() {
         val q = _uiState.value.current ?: return
         val ok = q.answer.equals(_uiState.value.userInput.trim(), true)
+
+        if (ok) ScoreManager.addPoint()        // ⬅️ dopisane
+
         _uiState.update {
             it.copy(
-                feedback = if (ok) GrammarUiState.Feedback.CORRECT
-                else     GrammarUiState.Feedback.WRONG,
-                score = if (ok) it.score + 1 else it.score
+                feedback = if (ok)
+                    GrammarUiState.Feedback.CORRECT
+                else
+                    GrammarUiState.Feedback.WRONG
             )
         }
     }

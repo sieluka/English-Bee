@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import com.example.englishbee.util.ScoreManager
 data class VerbQuizUiState(
     val current: IrregularVerb? = null,
     val pastInput: String = "",
@@ -37,7 +38,7 @@ class VerbQuizViewModel(
         if (deck.isEmpty()) {
             reloadDeck()  // nowa runda
         } else {
-            val next = deck.removeLast()
+            val next = deck.removeAt(deck.lastIndex)
             _uiState.value = VerbQuizUiState(current = next)
         }
     }
@@ -53,6 +54,7 @@ class VerbQuizViewModel(
         val correct = q.past.equals(_uiState.value.pastInput.trim(), true) &&
                 q.participle.equals(_uiState.value.partInput.trim(), true)
         _uiState.update { it.copy(feedback = correct) }
+        if (correct) ScoreManager.addPoint()
     }
 
     fun loadNext() {

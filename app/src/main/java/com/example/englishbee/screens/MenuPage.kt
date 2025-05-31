@@ -9,26 +9,35 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
+
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.englishbee.R
+import com.example.englishbee.util.ScoreManager
+import com.example.englishbee.util.UserSession
 
-
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenTwo(
     onNavigateToDictionary: () -> Unit,
     onNavigateToGrammar: () -> Unit,
     onNavigateToVerbs: () -> Unit,
-    onNavigateToVocabulary: () -> Unit
+    onNavigateToVocabulary: () -> Unit,
+    onLogout: () -> Unit
 ) {
+    val points by ScoreManager.points.collectAsState()
+    val user by UserSession.user.collectAsState()
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -38,8 +47,16 @@ fun ScreenTwo(
                         fontSize = 30.sp,
                         modifier = Modifier
                             .padding(top = 20.dp)
+
                     )
-                }
+                },
+                        actions = {
+                            Text(
+                                text = "Score: $points",
+                                style = MaterialTheme.typography.bodyLarge,
+                                modifier = Modifier.padding(end = 16.dp)
+                            )
+                        }
             )
         }
     ) { innerPadding ->
@@ -98,6 +115,22 @@ fun ScreenTwo(
                     fontSize = 24.sp
                 )
             }
+            Spacer(Modifier.weight(1f))    // przenosi następne elementy na dół
+
+            Text(
+                text = "Logged in as: ${user ?: "-"}",
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(top = 16.dp)
+            )
+
+            Button(
+                onClick = onLogout,
+                modifier = Modifier
+                    .padding(16.dp)
+                    .fillMaxWidth(0.6f)
+            ) { Text("Logout") }
+
+
         }
     }
 }
