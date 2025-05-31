@@ -8,8 +8,8 @@ import com.example.englishbee.repository.AuthRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
-class LoginVMFactory(                     // ①
-    private val context: Context          // ← zmieniamy nazwę parametru
+class LoginVMFactory(
+    private val context: Context
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

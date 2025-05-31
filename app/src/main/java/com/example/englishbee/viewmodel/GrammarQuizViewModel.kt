@@ -42,13 +42,13 @@ class GrammarQuizViewModel(
                 it.copy(
                     current = q,
                     userInput = "",
-                    feedback = null            // reset komunikatu
+                    feedback = null
                 )
             }
         }
     }
 
-    /*  ---- publiczne API dla UI ----  */
+    /**  ---- publiczne API dla UI ----  */
 
     fun onInputChange(txt: String) =
         _uiState.update { it.copy(userInput = txt) }
@@ -57,7 +57,7 @@ class GrammarQuizViewModel(
         val q = _uiState.value.current ?: return
         val ok = q.answer.equals(_uiState.value.userInput.trim(), true)
 
-        if (ok) ScoreManager.addPoint()        // ⬅️ dopisane
+        if (ok) ScoreManager.addPoint()
 
         _uiState.update {
             it.copy(

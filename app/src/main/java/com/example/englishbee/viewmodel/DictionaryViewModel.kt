@@ -28,8 +28,8 @@ class DictionaryViewModel(
     }
 
     fun search() {
-        // ignorujemy puste wpisy
-        if (uiState.query.isBlank()) return
+
+        if (uiState.query.isBlank()) return // ignoruj puste wpisy
 
         viewModelScope.launch {
             uiState = uiState.copy(isLoading = true, error = null)

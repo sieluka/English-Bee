@@ -7,8 +7,8 @@ import com.example.englishbee.data.AppDatabase      // ← ten jeden zostaje
 import com.example.englishbee.repository.AuthRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
-class RegisterVMFactory(                     // ①
-    private val context: Context          // ← zmieniamy nazwę parametru
+class RegisterVMFactory(
+    private val context: Context
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
