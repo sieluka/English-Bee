@@ -79,5 +79,7 @@ dependencies {
     // (lub ksp: "androidx.room:room-compiler:2.6.1", plugin("com.google.devtools.ksp") …)
     implementation("androidx.compose.material3:material3:1.2.1")
     implementation("androidx.compose.ui:ui-tooling:...")
+    implementation(platform("androidx.compose:compose-bom:2024.03.00"))
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     // Lifecycle (viewModelScope już masz z wcześniejszego kodu)
 }

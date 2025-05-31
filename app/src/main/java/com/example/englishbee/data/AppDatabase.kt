@@ -8,11 +8,12 @@ import androidx.sqlite.db.SupportSQLiteDatabase   //  ← WAŻNE
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [GrammarQuestion::class, IrregularVerb::class,VocabularyWord::class], version =2)
+@Database(entities = [GrammarQuestion::class, IrregularVerb::class,VocabularyWord::class,User::class ], version =3)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun grammarDao(): GrammarDao
     abstract fun verbDao(): IrregularVerbDao
     abstract fun vocabularyDao(): VocabularyDao
+    abstract fun userDao(): UserDao
     companion object {
         @Volatile private var INSTANCE: AppDatabase? = null
 

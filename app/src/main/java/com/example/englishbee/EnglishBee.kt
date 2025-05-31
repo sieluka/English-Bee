@@ -16,18 +16,19 @@ import com.example.englishbee.screens.VocabularyScreen
 @Composable
 fun NavigationContent() {
     val navController = rememberNavController()
-    NavHost(navController, startDestination = "login") {
+    NavHost(navController, startDestination = "screen1") {
 
         composable("login") {
             LoginPage(
-                onLoginClick = { _, _ -> navController.navigate("screen1") },
+                onLoggedIn      = { navController.navigate("screen2") },
                 onRegisterClick = { navController.navigate("register") }
             )
         }
 
+
         composable("screen1") {
             ScreenOne(
-                onNavigateToScreen2 = { navController.navigate("screen2") },
+                onNavigateToScreen2 = { navController.navigate("login") },
             )
         }
         composable("screen2") {
@@ -59,5 +60,14 @@ fun NavigationContent() {
                 onBack = { navController.popBackStack() }
             )
         }
+
+
+        composable("register") {
+            RegisterPage(
+                onRegistered  = { navController.popBackStack() }, // wróć do login
+                onBackToLogin = { navController.popBackStack() }
+            )
+        }
+
     }
 }
