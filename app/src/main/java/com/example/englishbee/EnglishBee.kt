@@ -9,6 +9,7 @@ import com.example.englishbee.screens.ScreenThree
 import com.example.englishbee.screens.ScreenTwo
 import com.example.englishbee.screens.GrammarQuizScreen
 import com.example.englishbee.screens.LoginPage
+import com.example.englishbee.screens.RegisterPage
 import com.example.englishbee.screens.VocabularyScreen
 
 
@@ -20,7 +21,7 @@ fun NavigationContent() {
         composable("login") {
             LoginPage(
                 onLoginClick = { _, _ -> navController.navigate("screen1") },
-                onRegisterClick = { /* obsługa rejestracji */ }
+                onRegisterClick = { navController.navigate("register") }
             )
         }
 
