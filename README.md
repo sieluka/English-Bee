@@ -54,14 +54,9 @@ https://dictionaryapi.dev/
 
 ## Przykładowe zapytania do API
 
-- **Pobierz wszystkie elementy**
+- **Pobierz tłumaczenie słowa**
   ```http
-  GET /api/items?api_key=YOUR_API_KEY
-  ```
-
-- **Pobierz wybrany element**
-  ```http
-  GET /api/items/{id}
+  GET /api/v2/entries/en/{word}
   ```
 ---
 
