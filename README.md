@@ -11,7 +11,7 @@
 - **Quiz gramatyczny** – testy sprawdzające znajomość gramatyki.
 - **Odmiana czasowników nieregularnych** – nauka i ćwiczenia z popularnymi czasownikami angielskimi.
 - **Tłumaczenie słówek** – szybkie tłumaczenie i nauka nowych słów.
-- **Wyszukiwanie znaczenia słów** – integracja ze słownikiem online (Words.Api).
+- **Wyszukiwanie znaczenia słów** – integracja ze słownikiem online (Free Dictionary API).
 
 ---
 
