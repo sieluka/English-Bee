@@ -25,20 +25,20 @@ import com.example.englishbee.util.ScoreManager
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.collectAsState
 
-@OptIn(ExperimentalMaterial3Api::class)             // ← DODAJ TO
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GrammarQuizScreen(
     onBack: () -> Unit
 ) {
-    /* ---------- ViewModel bez Hilt ---------- */
+
     val context = LocalContext.current
     val vm: GrammarQuizViewModel = viewModel(
         factory = object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                val db = AppDatabase.get(context, MainScope())       // 1) db
-                val repo = GrammarRepository(db.grammarDao())        // 2) repo
+                val db = AppDatabase.get(context, MainScope())
+                val repo = GrammarRepository(db.grammarDao())
                 @Suppress("UNCHECKED_CAST")
-                return GrammarQuizViewModel(repo) as T               // 3) vm
+                return GrammarQuizViewModel(repo) as T
             }
         }
     )
@@ -46,10 +46,10 @@ fun GrammarQuizScreen(
     val state by vm.uiState.collectAsState()
     val points by ScoreManager.points.collectAsState()
 
-    /* ---------- UI ---------- */
+
     Scaffold(
         topBar = {
-            TopAppBar(                               // lub SmallTopAppBar
+            TopAppBar(
                 title = { Text("Grammar Quiz") },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
@@ -73,7 +73,7 @@ fun GrammarQuizScreen(
                 .padding(24.dp),
             verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.Top)
         ) {
-            /* Pytanie */
+
             state.current?.let { q ->
                 Text(
                     q.sentence.replace("____", "_____"),
@@ -81,7 +81,7 @@ fun GrammarQuizScreen(
                 )
             }
 
-            /* Pole odpowiedzi */
+
             OutlinedTextField(
                 value = state.userInput,
                 onValueChange = vm::onInputChange,
@@ -90,7 +90,7 @@ fun GrammarQuizScreen(
                 modifier = Modifier.fillMaxWidth()
             )
 
-            /* Informacja zwrotna */
+
             when (state.feedback) {
                 GrammarUiState.Feedback.CORRECT ->
                     Text("✅ Correct!", color = MaterialTheme.colorScheme.primary)
@@ -99,7 +99,7 @@ fun GrammarQuizScreen(
                 null -> {}
             }
 
-            /* Przyciski */
+
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 Button(onClick = vm::check) { Text("Check") }
                 Button(onClick = vm::nextQuestion) { Text("Next") }

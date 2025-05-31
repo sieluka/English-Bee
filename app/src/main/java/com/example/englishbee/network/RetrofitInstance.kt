@@ -17,7 +17,6 @@ object RetrofitInstance {
         .addInterceptor(logging)
         .build()
 
-    /**  ➜  KLUCZOWE: Moshi z KotlinJsonAdapterFactory  **/
     private val moshi = Moshi.Builder()
         .addLast(KotlinJsonAdapterFactory())
         .build()
@@ -26,7 +25,7 @@ object RetrofitInstance {
         Retrofit.Builder()
             .baseUrl("https://api.dictionaryapi.dev/")
             .client(client)
-            .addConverterFactory(MoshiConverterFactory.create(moshi))  //  <-- tu
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
             .create(DictionaryApi::class.java)
     }

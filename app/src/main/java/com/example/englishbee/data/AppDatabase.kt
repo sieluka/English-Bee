@@ -3,8 +3,8 @@ package com.example.englishbee.data
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
-import androidx.room.RoomDatabase      //  ← WAŻNE
-import androidx.sqlite.db.SupportSQLiteDatabase   //  ← WAŻNE
+import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

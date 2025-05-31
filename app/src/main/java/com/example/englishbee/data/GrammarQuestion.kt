@@ -7,6 +7,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "grammar_questions")
 data class GrammarQuestion(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val sentence: String,      // "I ____ to school yesterday."
-    val answer: String         // "went"
+    val sentence: String,
+    val answer: String
 )

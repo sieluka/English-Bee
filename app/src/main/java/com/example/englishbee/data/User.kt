@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class User(
-    @PrimaryKey val login: String,          // unique id
-    val passwordHash: String                // NEVER store plain text
+    @PrimaryKey val login: String,
+    val passwordHash: String
 )

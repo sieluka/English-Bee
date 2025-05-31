@@ -18,7 +18,7 @@ class LoginViewModel(private val repo: AuthRepository) : ViewModel() {
     fun login(login: String, pw: String, onSuccess: () -> Unit) =
         viewModelScope.launch {
             if (repo.login(login, pw)) {
-                UserSession.set(login)        //️ zapisz login
+                UserSession.set(login)
                 onSuccess()
             } else {
                 _error.value = "Wrong login or password"

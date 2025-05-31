@@ -37,7 +37,7 @@ class GrammarQuizViewModel(
 
     private fun drawNext() {
         if (deck.isEmpty()) reloadDeck() else {
-            val q = deck.removeLast()         // bierzemy „spód talii”
+            val q = deck.removeLast()
             _uiState.update {
                 it.copy(
                     current = q,
@@ -48,7 +48,7 @@ class GrammarQuizViewModel(
         }
     }
 
-    /**  ---- publiczne API dla UI ----  */
+
 
     fun onInputChange(txt: String) =
         _uiState.update { it.copy(userInput = txt) }

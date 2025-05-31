@@ -22,7 +22,7 @@ class VerbQuizViewModel(
     private val _uiState = MutableStateFlow(VerbQuizUiState())
     val uiState: StateFlow<VerbQuizUiState> = _uiState
 
-    /** Talia potasowanych czasowników */
+
     private var deck: MutableList<IrregularVerb> = mutableListOf()
 
     init {
