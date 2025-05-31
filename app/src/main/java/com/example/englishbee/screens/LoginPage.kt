@@ -3,6 +3,7 @@ package com.example.englishbee.screens
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -48,7 +49,7 @@ fun LoginPage(
             onClick = { onLoginClick(login, password) },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Icon(Icons.Default.ExitToApp, contentDescription = null)
+            Icon(Icons.AutoMirrored.Filled.ExitToApp, contentDescription = null)
             Spacer(modifier = Modifier.width(8.dp))
             Text(stringResource(R.string.login))
         }
