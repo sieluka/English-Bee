@@ -10,3 +10,4 @@ object ScoreManager {
     fun addPoint() { _points.value += 1 }
     fun reset()    { _points.value = 0 }
 }
+//zmiana
