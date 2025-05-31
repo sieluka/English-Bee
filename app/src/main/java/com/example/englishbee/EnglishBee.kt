@@ -71,7 +71,7 @@ fun NavigationContent() {
 
         composable("register") {
             RegisterPage(
-                onRegistered  = { navController.popBackStack() }, // wróć do login
+                onRegistered  = { navController.popBackStack() },
                 onBackToLogin = { navController.popBackStack() }
             )
         }

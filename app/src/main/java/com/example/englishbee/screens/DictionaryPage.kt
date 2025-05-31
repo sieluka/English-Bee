@@ -16,7 +16,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.englishbee.model.DictionaryEntry
 import com.example.englishbee.viewmodel.DictionaryViewModel
 
-// -------  EK RAN SŁOWNIKA  ---------
+
 @Composable
 fun ScreenThree(
     onNavigateToScreen2: () -> Unit,

@@ -115,7 +115,7 @@ fun ScreenTwo(
                     fontSize = 24.sp
                 )
             }
-            Spacer(Modifier.weight(1f))    // przenosi następne elementy na dół
+            Spacer(Modifier.weight(1f))
 
             Text(
                 text = "Logged in as: ${user ?: "-"}",
@@ -134,4 +134,3 @@ fun ScreenTwo(
         }
     }
 }
-// This file defines the second screen of the app, which contains a button to navigate back to ScreenOne.

@@ -9,12 +9,12 @@ import kotlinx.coroutines.launch
 class RegisterViewModel(private val repo: AuthRepository) : ViewModel() {
 
     private val _error = MutableStateFlow<String?>(null)
-    val error: StateFlow<String?> = _error          // obserwowane w UI
+    val error: StateFlow<String?> = _error
 
     fun register(login: String, pw: String, onSuccess: () -> Unit) =
         viewModelScope.launch {
             _error.value = repo.register(login, pw) ?: run {
-                onSuccess()          // przenosimy się np. do login screen
+                onSuccess()
                 null
             }
         }
