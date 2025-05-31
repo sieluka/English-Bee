@@ -8,4 +8,7 @@
     <string name="verbs">Verbs</string>
     <string name="dictionary">Dictionary</string>
     <string name="choose">Choose your opponent</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
 </resources>

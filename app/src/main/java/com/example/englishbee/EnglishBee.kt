@@ -8,13 +8,22 @@ import com.example.englishbee.screens.ScreenOne
 import com.example.englishbee.screens.ScreenThree
 import com.example.englishbee.screens.ScreenTwo
 import com.example.englishbee.screens.GrammarQuizScreen
+import com.example.englishbee.screens.LoginPage
 import com.example.englishbee.screens.VocabularyScreen
 
 
 @Composable
 fun NavigationContent() {
     val navController = rememberNavController()
-    NavHost(navController, startDestination = "screen1") {
+    NavHost(navController, startDestination = "login") {
+
+        composable("login") {
+            LoginPage(
+                onLoginClick = { _, _ -> navController.navigate("screen1") },
+                onRegisterClick = { /* obsługa rejestracji */ }
+            )
+        }
+
         composable("screen1") {
             ScreenOne(
                 onNavigateToScreen2 = { navController.navigate("screen2") },
