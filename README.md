@@ -94,19 +94,19 @@ Aplikacja wykorzystuje Words.Api do pobierania tłumaczeń i znaczeń słówek. 
     </tr>
     <tr>
       <td>Menu główne</td>
-      <td><img src="https://github.com/user-attachments/assets/8a8a54c4-972f-4783-86fd-ed76be51bdf3" alt="ekran_menu" width="200"></td>
+      <td><img src="https://github.com/user-attachments/assets/4c63aa91-16c9-46bf-b703-f6ab85e73796" alt="ekran_menu" width="200"></td>
     </tr>
     <tr>
       <td>Gramatyka</td>
-      <td><img src="https://github.com/user-attachments/assets/be727f34-306c-4d4a-8686-26c984a20f8b" alt="ekran_gramatyki" width="200"></td>
+      <td><img src="https://github.com/user-attachments/assets/2c0cd9b6-4044-41ba-b723-f53b9ac030d2" alt="ekran_gramatyki" width="200"></td>
     </tr>
     <tr>
       <td>Czasowniki nieregularne</td>
-      <td><img src="https://github.com/user-attachments/assets/59e00ecd-aed5-4b81-93da-7d29149088a3" alt="ekran_czasownikow" width="200"></td>
+      <td><img src="https://github.com/user-attachments/assets/7785af33-e83a-4886-9807-bf96b5456efb" alt="ekran_czasownikow" width="200"></td>
     </tr>
     <tr>
       <td>Słówka</td>
-      <td><img src="https://github.com/user-attachments/assets/7e1e3e3f-5838-45a8-a7ef-7762f080e9ce" alt="ekran_slowek" width="200"></td>
+      <td><img src="https://github.com/user-attachments/assets/eba2372f-1042-4dae-a0a9-254b0f0fd964" alt="ekran_slowek" width="200"></td>
     </tr>
     <tr>
       <td>Słownik</td>
