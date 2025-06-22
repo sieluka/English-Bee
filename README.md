@@ -1,6 +1,6 @@
 # EnglishBee
 
-**EnglishBee** to aplikacja mobilna na Androida wspierająca naukę języka angielskiego. Wykorzystuje lokalną bazę danych Room oraz zewnętrzne API słownikowe (Words.Api), oferując różnorodne formy nauki i szybki dostęp do tłumaczeń oraz quizów. Aplikacja obsługuje rejestrację i logowanie użytkownika oraz przyznaje punkty za poprawne odpowiedzi.
+**EnglishBee** to aplikacja mobilna na Androida wspierająca naukę języka angielskiego. Wykorzystuje lokalną bazę danych Room oraz zewnętrzne API słownikowe (Free Dictionary API), oferując różnorodne formy nauki i szybki dostęp do tłumaczeń oraz quizów. Aplikacja obsługuje rejestrację i logowanie użytkownika oraz przyznaje punkty za poprawne odpowiedzi.
 
 ---
 
@@ -11,7 +11,7 @@
 - **Quiz gramatyczny** – testy sprawdzające znajomość gramatyki.
 - **Odmiana czasowników nieregularnych** – nauka i ćwiczenia z popularnymi czasownikami angielskimi.
 - **Tłumaczenie słówek** – szybkie tłumaczenie i nauka nowych słów.
-- **Wyszukiwanie znaczenia słów** – integracja ze słownikiem online (Words.Api).
+- **Wyszukiwanie znaczenia słów** – integracja ze słownikiem online (Free Dictionary API).
 
 ---
 
@@ -20,7 +20,7 @@
 - **Język:** Kotlin
 - **Framework:** Jetpack Compose (UI)
 - **Baza danych:** Room (SQLite)
-- **API:** Words.Api (dla tłumaczeń i definicji słówek)
+- **API:** Free Dictionary API (dla tłumaczeń i definicji słówek)
 - **Architektura:** MVVM (Model-View-ViewModel)
 
 ---
@@ -43,22 +43,21 @@ Wymagania:
 
 ## Konfiguracja API
 
-Aplikacja wykorzystuje Words.Api do pobierania tłumaczeń i znaczeń słówek. W razie potrzeby skonfiguruj własny klucz API w odpowiednich plikach konfiguracyjnych projektu.
+Aplikacja wykorzystuje Free Dictionary API do pobierania tłumaczeń i znaczeń słówek. W razie potrzeby skonfiguruj własny klucz API w odpowiednich plikach konfiguracyjnych projektu.
+
+**Link do strony z API**
+```
+https://dictionaryapi.dev/
+```
 
 ---
 
 ## Przykładowe zapytania do API
 
-- **Pobierz wszystkie elementy**
+- **Pobierz tłumaczenie słowa**
   ```http
-  GET /api/items?api_key=YOUR_API_KEY
+  GET /api/v2/entries/en/{word}
   ```
-
-- **Pobierz wybrany element**
-  ```http
-  GET /api/items/{id}
-  ```
-
 ---
 
 ## Zrzuty ekranu
