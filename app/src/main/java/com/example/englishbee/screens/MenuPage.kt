@@ -128,7 +128,7 @@ fun ScreenTwo(
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth(0.6f)
-            ) { Text("Logout") }
+            ) { Text(stringResource(R.string.logout)) }
 
 
         }

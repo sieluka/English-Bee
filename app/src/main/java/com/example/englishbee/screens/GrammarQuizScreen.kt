@@ -24,6 +24,8 @@ import kotlinx.coroutines.MainScope
 import com.example.englishbee.util.ScoreManager
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.res.stringResource
+import com.example.englishbee.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -50,7 +52,7 @@ fun GrammarQuizScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Grammar Quiz") },
+                title = { Text(stringResource(R.string.grammar_quiz)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.Default.ArrowBack, contentDescription = null)
@@ -85,7 +87,7 @@ fun GrammarQuizScreen(
             OutlinedTextField(
                 value = state.userInput,
                 onValueChange = vm::onInputChange,
-                label = { Text("Your answer") },
+                label = { Text(stringResource(R.string.your_answer)) },
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth()
             )
@@ -93,16 +95,16 @@ fun GrammarQuizScreen(
 
             when (state.feedback) {
                 GrammarUiState.Feedback.CORRECT ->
-                    Text("✅ Correct!", color = MaterialTheme.colorScheme.primary)
+                    Text(stringResource(R.string.correct), color = MaterialTheme.colorScheme.primary)
                 GrammarUiState.Feedback.WRONG ->
-                    Text("❌ Wrong!", color = MaterialTheme.colorScheme.error)
+                    Text(stringResource(R.string.wrong), color = MaterialTheme.colorScheme.error)
                 null -> {}
             }
 
 
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                Button(onClick = vm::check) { Text("Check") }
-                Button(onClick = vm::nextQuestion) { Text("Next") }
+                Button(onClick = vm::check) { Text(stringResource(R.string.check)) }
+                Button(onClick = vm::nextQuestion) { Text(stringResource(R.string.next)) }
             }
 
             Spacer(Modifier.weight(1f))

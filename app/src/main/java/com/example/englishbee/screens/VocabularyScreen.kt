@@ -15,6 +15,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.collectAsState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.ui.res.stringResource
+import com.example.englishbee.R
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -27,7 +29,7 @@ fun VocabularyScreen(onBack: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Vocabulary Quiz") },
+                title = { Text(stringResource(R.string.vocabulary_quiz)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Back")
@@ -66,21 +68,21 @@ fun VocabularyScreen(onBack: () -> Unit) {
                 OutlinedTextField(
                     value = state.userInput,
                     onValueChange = vm::onInputChange,
-                    label = { Text("Your translation") },
+                    label = { Text(stringResource(R.string.your_translation)) },
                     modifier = Modifier.fillMaxWidth()
                 )
 
                 Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                     Button(onClick = vm::check) {
-                        Text("Check")
+                        Text(stringResource(R.string.check))
                     }
                     Button(onClick = vm::next) {
-                        Text("Next")
+                        Text(stringResource(R.string.next))
                     }
                 }
 
                 state.feedback?.let { correct ->
-                    val msg = if (correct) "Correct ✅" else "Incorrect ❌"
+                    val msg = if (correct) stringResource(R.string.correct) else stringResource(R.string.wrong)
                     val color = if (correct) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
                     Text(text = msg, color = color)
                 }

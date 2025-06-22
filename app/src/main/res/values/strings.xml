@@ -11,4 +11,18 @@
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="register">Register</string>
+    <string name="enter_word">Enter word</string>
+    <string name="error">Error</string>
+    <string name="grammar_quiz">Grammar Quiz</string>
+    <string name="your_answer">Your answer</string>
+    <string name="correct">✅ Correct!</string>
+    <string name="wrong">❌ Wrong!</string>
+    <string name="check">Check</string>
+    <string name="next">Next</string>
+    <string name="logout">Logout</string>
+    <string name="irregular_verbs">Irregular Verbs</string>
+    <string name="past_simple">Past Simple</string>
+    <string name="past_participle">Past Participle</string>
+    <string name="vocabulary_quiz">Vocabulary Quiz</string>
+    <string name="your_translation">Your translation</string>
 </resources>

@@ -11,8 +11,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.englishbee.R
 import com.example.englishbee.model.DictionaryEntry
 import com.example.englishbee.viewmodel.DictionaryViewModel
 
@@ -45,7 +47,7 @@ fun ScreenThree(
                 TextField(
                     value = state.query,
                     onValueChange = viewModel::onQueryChange,
-                    placeholder = { Text("Enter word") },
+                    placeholder = { Text(stringResource(R.string.enter_word)) },
                     singleLine = true,
                     modifier = Modifier.weight(1f)
                 )
@@ -68,7 +70,7 @@ fun ScreenThree(
             when {
                 state.isLoading -> CircularProgressIndicator()
                 state.error != null -> Text(
-                    text = state.error ?: "Error",
+                    text = state.error ?: stringResource(R.string.error),
                     color = MaterialTheme.colorScheme.error
                 )
                 state.entries.isNotEmpty() -> LazyColumn(

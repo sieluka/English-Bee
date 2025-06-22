@@ -16,6 +16,8 @@ import com.example.englishbee.viewmodel.VerbQuizViewModelFactory
 import com.example.englishbee.util.ScoreManager
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.res.stringResource
+import com.example.englishbee.R
 
 import com.example.englishbee.viewmodel.VerbQuizUiState
 @OptIn(ExperimentalMaterial3Api::class)
@@ -31,7 +33,7 @@ fun VerbQuizScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Irregular Verbs") },
+                title = { Text(stringResource(R.string.irregular_verbs)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null)
@@ -73,29 +75,29 @@ fun VerbQuizScreen(
                 OutlinedTextField(
                     value = state.pastInput,
                     onValueChange = vm::onPastChange,
-                    label = { Text("Past Simple") },
+                    label = { Text(stringResource(R.string.past_simple)) },
                     modifier = Modifier.fillMaxWidth()
                 )
 
                 OutlinedTextField(
                     value = state.partInput,
                     onValueChange = vm::onPartChange,
-                    label = { Text("Past Participle") },
+                    label = { Text(stringResource(R.string.past_participle)) },
                     modifier = Modifier.fillMaxWidth()
                 )
 
                 Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                     Button(onClick = vm::check) {
-                        Text("Check")
+                        Text(stringResource(R.string.check))
                     }
 
                     Button(onClick = vm::loadNext) {
-                        Text("Next")
+                        Text(stringResource(R.string.next))
                     }
                 }
 
                 state.feedback?.let { correct ->
-                    val msg = if (correct) "Correct ✅" else "Incorrect ❌"
+                    val msg = if (correct) stringResource(R.string.correct) else stringResource(R.string.wrong)
                     val color =
                         if (correct) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
                     Text(text = msg, color = color)
